@@ -1,4 +1,3 @@
-// Application State
 let state = {
     keywords: '',
     currentPost: null,
@@ -40,7 +39,6 @@ const elements = {
     postCount: document.getElementById('postCount') // Счётчик сгенерированных постов
 };
 
-// Utility Functions
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60); // Преобразуем время в минуты
     const secs = seconds % 60; // Остаток секунд
@@ -237,7 +235,6 @@ function updateHistoryList() {
     `).join('');
 }
 
-// Event Handlers
 async function handleGenerateImage() {
     if (!state.keywords.trim() || state.isGeneratingImage) return;
 
