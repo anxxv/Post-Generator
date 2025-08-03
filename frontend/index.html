@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Post Generator</title>
+     <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем иконочный шрифт Font Awesome для использования иконок -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Social Media Post Generator</h1>
+                        <p>Create engaging content with AI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="grid">
+                  <!-- Левая колонка - управление генерацией -->
+                <div class="column controls-column">
+                    <!-- Управление генерацией контента -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Content Generation</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label for="keywords">Company Description / Keywords</label>
+                                <textarea
+                                    id="keywords"
+                                    placeholder="Enter your company description, product details, or keywords to generate relevant content..."
+                                    rows="4"
+                                ></textarea>
+                            </div>
+                            <div class="button-group">
+                                <!-- Кнопки для генерации изображения и текста -->
+                                <button id="generateImage" class="btn btn-primary" disabled>
+                                    <i class="fas fa-image"></i>
+                                    <span>Generate Image</span>
+                                    <div class="loading-spinner" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <span>Generating Image...</span>
+                                    </div>
+                                </button>
+                                <button id="generateText" class="btn btn-secondary" disabled>
+                                    <i class="fas fa-font"></i>
+                                    <span>Generate Post Text</span>
+                                    <div class="loading-spinner" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <span>Generating Text...</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Настройки таймера для авто-генерации -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fas fa-clock"></i>
+                                Auto-Generation Timer
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="switch-group">
+                                <label for="autoMode">Enable Auto Mode</label>
+                                <div class="switch">
+                                    <input type="checkbox" id="autoMode">
+                                    <span class="slider"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="interval">Interval (minutes)</label>
+                                <input type="number" id="interval" min="5" max="120" value="30">
+                            </div>
+                            <div id="timerDisplay" class="timer-display" style="display: none;">
+                                <p>Next generation in</p>
+                                <div class="timer-value">0:00</div>
+                            </div>
+                            <button id="toggleTimer" class="btn btn-outline">
+                                <i class="fas fa-play"></i>
+                                Start Auto Mode
+                            </button>
+                        </div>
+                    </div>
+
+                     <!-- Заглушка для авто-публикации (Coming Soon) -->
+                    <div class="card card-placeholder">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fas fa-bolt"></i>
+                                Auto-posting Integration
+                                <span class="badge">Coming Soon</span>
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Connect your social media accounts for automatic posting when content is generated.</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Средняя колонка - предварительный просмотр -->
+                <div class="column preview-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Post Preview</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="postPreview" class="post-preview">
+                                <div class="preview-placeholder">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <p>Generate content to see preview</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка - история постов -->
+                <div class="column history-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                Generated Posts History
+                                <span id="postCount" class="post-count">2 posts</span>
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="historyList" class="history-list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
