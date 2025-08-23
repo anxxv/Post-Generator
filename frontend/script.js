@@ -61,7 +61,7 @@ async function generateText(prompt) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer sk-....."
         },
         body: JSON.stringify({
             model: "mistralai/mistral-7b-instruct",
